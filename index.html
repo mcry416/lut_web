@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LOOKTABLE · LUT</title>
+  <meta name="description" content="LOOKTABLE — bilingual LUT looks. 中英对照的 LUT 色彩特点展示。">
+  <meta name="theme-color" content="#0a162c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LOOKTABLE">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="container hero">
+      <p class="hero-kicker" data-i18n="heroKicker">Look-Up Tables</p>
+      <h1 data-i18n="heroTitle">LUT</h1>
+      <p data-i18n="heroLead">每条查找表只介绍色彩特点。</p>
+      <div class="hero-actions">
+        <a class="button" href="gallery.html" data-i18n="browse">浏览全部</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="compare">拖动对比</h2>
+        </div>
+        <div id="featured-strip" class="strip"></div>
+        <div class="compare" id="home-compare">
+          <canvas data-role="after"></canvas>
+          <canvas data-role="before"></canvas>
+          <input type="range" min="0" max="100" value="50" aria-label="compare">
+          <span class="compare-handle" aria-hidden="true"></span>
+          <span class="compare-tag left" data-role="before-label">原片</span>
+          <span class="compare-tag right" data-role="after-label">LUT</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="selected">LUT</h2>
+          <a href="gallery.html" data-i18n="viewAll">查看全部 →</a>
+        </div>
+        <div id="home-picks" class="card-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/lut.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
