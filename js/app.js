@@ -98,7 +98,7 @@
             <p class="footer-logo">LOOKTABLE</p>
             <p class="muted">${t("footerTag")}</p>
           </div>
-          <span class="muted">© ${new Date().getFullYear()} · ${t("pages")}</span>
+          <span class="muted">${t("pages")}</span>
         </div>
       </footer>
     `;
