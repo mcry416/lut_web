@@ -18,9 +18,9 @@ python3 -m http.server 8080
 
 Settings → Pages → 主分支根目录 / main branch, `/` root.
 
-当前资源为富士开源胶片模拟 LUT（65³ `.cube`），参考预览图为 `assets/ref_wallpaper_scene.jpg`。
+当前资源为富士开源胶片模拟 LUT，以及 Presetpro 创意 LUT。参考预览图为 `assets/ref_wallpaper_scene.jpg`。
 
-Current files are Fujifilm open film-simulation LUTs (65³ `.cube`). The preview still is `assets/ref_wallpaper_scene.jpg`.
+Current files are Fujifilm open film-simulation LUTs plus Presetpro creative looks. The preview still is `assets/ref_wallpaper_scene.jpg`.
 
 ## 添加 LUT / Add a LUT
 
