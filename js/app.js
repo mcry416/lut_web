@@ -91,12 +91,18 @@
   function renderFooter() {
     const host = document.getElementById("site-footer");
     if (!host) return;
+    const email = "mcry416@outlook.com";
+    const notice = String(t("footerNotice")).replace(
+      "{email}",
+      `<a href="mailto:${email}">${email}</a>`
+    );
     host.innerHTML = `
       <footer class="site-footer">
         <div class="container footer-bar">
           <div>
             <p class="footer-logo">LOOKTABLE</p>
             <p class="muted">${t("footerTag")}</p>
+            <p class="muted footer-notice">${notice}</p>
           </div>
           <span class="muted">${t("pages")}</span>
         </div>

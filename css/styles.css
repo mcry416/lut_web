@@ -448,7 +448,24 @@ h3 { font-size: 1.3rem; margin: 0.15rem 0 0.55rem; }
   gap: 1rem;
 }
 
+.footer-bar > div {
+  flex: 1;
+  min-width: 0;
+}
+
 .footer-logo { letter-spacing: 0.16em; margin: 0 0 0.25rem; }
+
+.footer-notice {
+  max-width: 40rem;
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.footer-notice a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
 
 .modal[hidden] { display: none; }
 
