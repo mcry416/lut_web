@@ -1,5 +1,5 @@
 (function (global) {
-  const REF_IMAGE = "assets/ref_wallpaper_scene.jpg";
+  const DEFAULT_REF = "assets/ref_wallpaper_scene.jpg";
 
   function clampByte(v) {
     return v < 0 ? 0 : v > 255 ? 255 : v;
@@ -149,24 +149,27 @@
     return pending;
   }
 
-  let imagePromise = null;
+  const imagePromises = new Map();
   const sceneCache = new Map();
 
-  function loadReferenceImage() {
-    if (imagePromise) return imagePromise;
-    imagePromise = new Promise((resolve, reject) => {
+  function loadReferenceImage(url) {
+    const src = url || DEFAULT_REF;
+    if (imagePromises.has(src)) return imagePromises.get(src);
+    const promise = new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(img);
       img.onerror = () => reject(new Error("无法读取参考图"));
-      img.src = REF_IMAGE;
+      img.src = src;
     });
-    return imagePromise;
+    imagePromises.set(src, promise);
+    return promise;
   }
 
-  async function getScene(width, height) {
-    const key = `${width}x${height}`;
+  async function getScene(width, height, imageUrl) {
+    const src = imageUrl || DEFAULT_REF;
+    const key = `${src}|${width}x${height}`;
     if (sceneCache.has(key)) return sceneCache.get(key);
-    const img = await loadReferenceImage();
+    const img = await loadReferenceImage(src);
     const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
@@ -180,12 +183,12 @@
     return data;
   }
 
-  async function paintPreview(canvas, lutUrl, width, height) {
+  async function paintPreview(canvas, lutUrl, width, height, imageUrl) {
     canvas.width = width;
     canvas.height = height;
     canvas.classList.add("is-loading");
     const ctx = canvas.getContext("2d");
-    const scene = await getScene(width, height);
+    const scene = await getScene(width, height, imageUrl);
     ctx.putImageData(scene, 0, 0);
     if (!lutUrl) {
       canvas.classList.remove("is-loading");

@@ -18,11 +18,11 @@ python3 -m http.server 8080
 
 Settings → Pages → 主分支根目录 / main branch, `/` root.
 
-当前资源为富士开源胶片模拟 LUT，以及 Presetpro 创意 LUT。参考预览图为 `assets/ref_wallpaper_scene.jpg`。
+当前资源为富士开源胶片模拟 LUT，以及 Presetpro 创意 LUT。每条 LUT 在 `js/data.js` 里用 `preview` 指定参考图。
 
-Current files are Fujifilm open film-simulation LUTs plus Presetpro creative looks. The preview still is `assets/ref_wallpaper_scene.jpg`.
+Current files are Fujifilm open film-simulation LUTs plus Presetpro creative looks. Each LUT sets its preview still via `preview` in `js/data.js`.
 
 ## 添加 LUT / Add a LUT
 
 1. 把 `.cube` 放到 `assets/luts/`
-2. 在 `js/data.js` 增加 `nameZh`、`nameEn`、`summaryZh`、`summaryEn`、`file`
+2. 在 `js/data.js` 增加 `nameZh`、`nameEn`、`summaryZh`、`summaryEn`、`file`、`preview`

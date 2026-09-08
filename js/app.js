@@ -133,9 +133,10 @@
     const nodes = [...(scope || document).querySelectorAll("canvas[data-preview]")];
     const run = (canvas) => {
       const item = byId(canvas.dataset.preview);
-      if (!item || canvas.dataset.painted === item.file) return;
-      canvas.dataset.painted = item.file;
-      window.LUTEngine.paintPreview(canvas, item.file, 480, 320);
+      const paintKey = `${item.file}|${item.preview || ""}`;
+      if (!item || canvas.dataset.painted === paintKey) return;
+      canvas.dataset.painted = paintKey;
+      window.LUTEngine.paintPreview(canvas, item.file, 480, 320, item.preview);
     };
     if (!("IntersectionObserver" in window)) {
       nodes.forEach(run);
@@ -167,8 +168,8 @@
       root.appendChild(handle);
     }
 
-    window.LUTEngine.paintPreview(before, null, 720, 480);
-    window.LUTEngine.paintPreview(after, item.file, 720, 480);
+    window.LUTEngine.paintPreview(before, null, 720, 480, item.preview);
+    window.LUTEngine.paintPreview(after, item.file, 720, 480, item.preview);
 
     const next = range.cloneNode(true);
     range.replaceWith(next);
